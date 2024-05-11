@@ -3,17 +3,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>Document</title>
+    <title>Vuecrashcourse</title>
 </head>
 <body>
-    <h1>Hello Vue:)</h1>
+    <h1>Welcome to day 68 where its all about Conditional Rendering in Vue.js</h1>
     <div id="app">
-        <h2>I am a template from the html page side</h2>
-    <p>{{ title }}, {{ name }} and is {{ age }} old </p> 
-    <button @:click="age++">I increase the age</button>
-    <button @:click="age--">I decrease the age</button>
-
-    <div @click="changeTitle('Im codding while waiting for supper')">Welcome to NoteShare</div>
+        <div v-if="updateHeading">
+            <h1>{{heading}}</h1>
+            <ul>
+                <li v-for="(item, index) in todo" :key="index">{{ item }}</li>
+            </ul>
+            </div>
+            <div v-if="showInput">
+                <input type="text" v-model="newItem">
+                <button @click="addItem">Add Item</button>
+            </div>
+            <br>
+        <button @click="updateHeading">
+            <span v-if="showheading">Update Heading</span>
+            <span v-else>Reset Heading</span>
+        </button>
+        <button @click="resetHeading">Reset Todo List</button>
 </div>
     <script src="app.js"></script>
 </body>
