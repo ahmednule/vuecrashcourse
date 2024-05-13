@@ -2,29 +2,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Vuecrashcourse</title>
+    <style>
+        h1{color:rgb(241, 46, 88);}
+        
+    </style>
 </head>
 <body>
-    <h1>Welcome to day 68 where its all about Conditional Rendering in Vue.js</h1>
+    <h1>Welcome to Vue js crashCourse:)</h1>
     <div id="app">
-        <div v-if="updateHeading">
-            <h1>{{heading}}</h1>
+        <div v-if="showlanguages">
+            <h2>{{ title }}</h2>
             <ul>
-                <li v-for="(item, index) in todo" :key="index">{{ item }}</li>
+                <li v-for="item in languages">
+                    <h3>{{ item.language }}</h3>
+                    <p>{{ item.reason }}</p>
+                </li>
             </ul>
-            </div>
-            <div v-if="showInput">
-                <input type="text" v-model="newItem">
-                <button @click="addItem">Add Item</button>
-            </div>
-            <br>
-        <button @click="updateHeading">
-            <span v-if="showheading">Update Heading</span>
-            <span v-else>Reset Heading</span>
+        </div>
+        <button @click="toogleButton">
+            <span v-if="showlanguages">Hide Languages</span>
+            <span v-else>Show Languages</span>
         </button>
-        <button @click="resetHeading">Reset Todo List</button>
-</div>
+        </div>
     <script src="app.js"></script>
 </body>
 </html>
